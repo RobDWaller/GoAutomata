@@ -7,8 +7,22 @@ import (
 )
 
 func TestRuleToBinary(t *testing.T) {
+
+	type testCase struct {
+		rule     int16
+		expected string
+	}
+
 	t.Run("valid rule binaries", func(t *testing.T) {
-		result := RuleToBinary(30)
-		assert.Equal(t, "00011110", result)
+
+		tests := []testCase{
+			{rule: 30, expected: "00011110"},
+			{rule: 45, expected: "00101101"},
+		}
+
+		for _, test := range tests {
+			result := RuleToBinary(test.rule)
+			assert.Equal(t, test.expected, result)
+		}
 	})
 }
