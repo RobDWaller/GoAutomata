@@ -9,7 +9,7 @@ import (
 func TestRuleToBinary(t *testing.T) {
 
 	type testCase struct {
-		rule     int16
+		rule     uint8
 		expected string
 	}
 

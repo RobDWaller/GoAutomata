@@ -2,6 +2,6 @@ package rules
 
 import "fmt"
 
-func RuleToBinary(rule int16) string {
+func RuleToBinary(rule uint8) string {
 	return fmt.Sprintf("%08b", rule)
 }
