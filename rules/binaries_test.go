@@ -25,8 +25,7 @@ func TestRuleToBinary(t *testing.T) {
 		}
 
 		for _, test := range tests {
-			result, err := RuleToBinary(test.rule)
-			assert.NoError(t, err)
+			result := RuleToBinary(test.rule)
 			assert.Equal(t, test.expected, result)
 		}
 	})
