@@ -12,7 +12,7 @@ func TestGetRuleset(t *testing.T) {
 		expected [8]string
 	}
 
-	t.Run("valid rule binaries", func(t *testing.T) {
+	t.Run("valid ruleset", func(t *testing.T) {
 
 		tests := []testCase{
 			{expected: [8]string{"111", "110", "101", "100", "011", "010", "001", "000"}},
