@@ -11,14 +11,14 @@ func MakeRuleEngine(rule uint8) (map[string]uint8, error) {
 
 	engine := make(map[string]uint8)
 
-	for i, rule := range ruleset {
+	for i, value := range ruleset {
 		result, err := strconv.ParseUint(binary[i], 2, 8)
-
-		engine[rule] = uint8(result)
 
 		if err != nil {
 			return engine, err
 		}
+
+		engine[value] = uint8(result)
 	}
 
 	return engine, nil
