@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+// MakeRuleEngine builds a lookup table for a Wolfram rule number.
+// Keys are 3-cell neighborhoods (for example, "101") and values are next-state bits (0 or 1).
 func MakeRuleEngine(rule uint8) (map[string]uint8, error) {
 	binary := strings.Split(RuleToBinary(rule), "")
 	ruleset := GetRuleset()
