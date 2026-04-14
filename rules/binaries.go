@@ -1,9 +1,14 @@
 package rules
 
-import "fmt"
+// RuleToBinary converts a Wolfram rule number to eight binary digits (MSB to LSB).
+// e.g. Rule 30 => []uint8{0, 0, 0, 1, 1, 1, 1, 0}
+// Code uses bitwise operators to return correct binary bit.
+func RuleToBinary(rule uint8) []uint8 {
+	bits := make([]uint8, 8)
 
-// RuleToBinary converts a Wolfram rule number to an 8-bit binary string.
-// eg: Rule 30 to 00011110
-func RuleToBinary(rule uint8) string {
-	return fmt.Sprintf("%08b", rule)
+	for i := range 8 {
+		bits[i] = (rule >> (7 - i)) & 1
+	}
+
+	return bits
 }
