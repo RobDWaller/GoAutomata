@@ -10,19 +10,42 @@ func TestMakeRuleEngine(t *testing.T) {
 
 	type testCase struct {
 		rule     uint8
-		expected map[string]uint8
+		expected []RuleEngine
 	}
 
 	t.Run("valid rule engines", func(t *testing.T) {
 
 		tests := []testCase{
-			{rule: 30, expected: map[string]uint8{"111": 0, "110": 0, "101": 0, "100": 1, "011": 1, "010": 1, "001": 1, "000": 0}},
-			{rule: 45, expected: map[string]uint8{"111": 0, "110": 0, "101": 1, "100": 0, "011": 1, "010": 1, "001": 0, "000": 1}},
+			{
+				rule: 30,
+				expected: []RuleEngine{
+					{neigbourhood: [3]uint8{1, 1, 1}, next_step: 0},
+					{neigbourhood: [3]uint8{1, 1, 0}, next_step: 0},
+					{neigbourhood: [3]uint8{1, 0, 1}, next_step: 0},
+					{neigbourhood: [3]uint8{1, 0, 0}, next_step: 1},
+					{neigbourhood: [3]uint8{0, 1, 1}, next_step: 1},
+					{neigbourhood: [3]uint8{0, 1, 0}, next_step: 1},
+					{neigbourhood: [3]uint8{0, 0, 1}, next_step: 1},
+					{neigbourhood: [3]uint8{0, 0, 0}, next_step: 0},
+				},
+			},
+			{
+				rule: 45,
+				expected: []RuleEngine{
+					{neigbourhood: [3]uint8{1, 1, 1}, next_step: 0},
+					{neigbourhood: [3]uint8{1, 1, 0}, next_step: 0},
+					{neigbourhood: [3]uint8{1, 0, 1}, next_step: 1},
+					{neigbourhood: [3]uint8{1, 0, 0}, next_step: 0},
+					{neigbourhood: [3]uint8{0, 1, 1}, next_step: 1},
+					{neigbourhood: [3]uint8{0, 1, 0}, next_step: 1},
+					{neigbourhood: [3]uint8{0, 0, 1}, next_step: 0},
+					{neigbourhood: [3]uint8{0, 0, 0}, next_step: 1},
+				},
+			},
 		}
 
 		for _, test := range tests {
-			result, err := MakeRuleEngine(test.rule)
-			assert.NoError(t, err)
+			result := MakeRuleEngine(test.rule)
 			assert.Equal(t, test.expected, result)
 		}
 	})
