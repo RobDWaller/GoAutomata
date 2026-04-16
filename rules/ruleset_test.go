@@ -9,13 +9,13 @@ import (
 func TestGetRuleset(t *testing.T) {
 
 	type testCase struct {
-		expected [8]string
+		expected [8][3]uint8
 	}
 
 	t.Run("valid ruleset", func(t *testing.T) {
 
 		tests := []testCase{
-			{expected: [8]string{"111", "110", "101", "100", "011", "010", "001", "000"}},
+			{expected: [8][3]uint8{{1, 1, 1}, {1, 1, 0}, {1, 0, 1}, {1, 0, 0}, {0, 1, 1}, {0, 1, 0}, {0, 0, 1}, {0, 0, 0}}},
 		}
 
 		for _, test := range tests {
