@@ -1,8 +1,8 @@
 package rules
 
 type RuleEngine struct {
-	neigbourhood [3]uint8
-	next_step    uint8
+	Neighbourhood [3]uint8
+	NextStep      uint8
 }
 
 // MakeRuleEngine builds a lookup table for a Wolfram rule number.
@@ -14,7 +14,7 @@ func MakeRuleEngine(rule uint8) []RuleEngine {
 	engine := make([]RuleEngine, 8)
 
 	for i, neighbourhood := range ruleset {
-		engine[i] = RuleEngine{neigbourhood: neighbourhood, next_step: binary[i]}
+		engine[i] = RuleEngine{Neighbourhood: neighbourhood, NextStep: binary[i]}
 	}
 
 	return engine
