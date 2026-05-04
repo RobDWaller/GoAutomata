@@ -2,17 +2,13 @@ package automata
 
 import "go_automata/rules"
 
-func FindNeighbourhood(rule uint8, neighbourhood [3]uint8) rules.RuleEngine {
-	ruleEngines := rules.MakeRuleEngine(rule)
+func FindNeighbourhood(rule uint8, neighbourhood [3]uint8) (rules.RuleEngine, bool) {
 
-	var ruleEngine rules.RuleEngine
-
-	for _, engine := range ruleEngines {
+	for _, engine := range rules.MakeRuleEngine(rule) {
 		if engine.Neighbourhood == neighbourhood {
-			ruleEngine = engine
-			break
+			return engine, true
 		}
 	}
 
-	return ruleEngine
+	return rules.RuleEngine{}, false
 }
