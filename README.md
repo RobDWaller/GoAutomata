@@ -69,5 +69,5 @@ Validate code:
 gofmt -l ./
 go vet ./...
 golangci-lint run
-golangci-lint run --output.html.path ./benefits-lint-report.html
+golangci-lint run --output.html.path [file-or-directory]
 ```
