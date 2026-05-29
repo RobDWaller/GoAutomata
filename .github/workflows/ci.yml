@@ -18,4 +18,6 @@ jobs:
         run: go version
       - name: Check Go Format
         run: gofmt -l ./
+      - name: Run Go Static Analysis
+        run: golangci-lint run
 
