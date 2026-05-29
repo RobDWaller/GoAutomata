@@ -66,5 +66,8 @@ go test -v ./...
 Validate code:
 
 ```bash
+gofmt -l ./
 go vet ./...
+golangci-lint run
+golangci-lint run --output.html.path ./benefits-lint-report.html
 ```
