@@ -11,9 +11,9 @@ func GetNeighbourhood(row []uint8, position uint8) [3]uint8 {
 	return [3]uint8{prev, curr, next}
 }
 
-func FindNeighbourhood(rule uint8, neighbourhood [3]uint8) (rules.RuleEngine, bool) {
+func FindNeighbourhood(engines []rules.RuleEngine, neighbourhood [3]uint8) (rules.RuleEngine, bool) {
 
-	for _, engine := range rules.MakeRuleEngine(rule) {
+	for _, engine := range engines {
 		if engine.Neighbourhood == neighbourhood {
 			return engine, true
 		}
