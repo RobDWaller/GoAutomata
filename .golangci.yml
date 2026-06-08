@@ -1,0 +1,13 @@
+version: "2"
+linters:
+  default: standard
+  enable:
+    - cyclop
+  exclusions:
+    rules:
+      - path: main.go
+        text: "could convert argument to string"
+formatters:
+  enable:
+    - gofmt
+

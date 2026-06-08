@@ -1,0 +1,23 @@
+name: Go CI Checks
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+      - name: Setup Go
+        uses: actions/setup-go@v6
+      # You can test your matrix by printing the current Go version
+      - name: Display Go version
+        run: go version
+      - name: Check Go Format
+        run: gofmt -l ./
+      - name: Run Go Static Analysis
+        uses: golangci/golangci-lint-action@v9
+        with:
+          version: v2.12
+
