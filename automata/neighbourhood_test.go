@@ -1,8 +1,6 @@
 package automata
 
 import (
-	"go_automata/rules"
-
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -66,9 +64,9 @@ func TestGetNeighbourhood(t *testing.T) {
 func TestFindNeighbourhood(t *testing.T) {
 
 	type testCase struct {
-		engines       []rules.RuleEngine
+		engines       []RuleEngine
 		neighbourhood [3]uint8
-		expected      rules.RuleEngine
+		expected      RuleEngine
 		found         bool
 	}
 
@@ -76,21 +74,21 @@ func TestFindNeighbourhood(t *testing.T) {
 
 		tests := []testCase{
 			{
-				engines:       rules.MakeRuleEngine(30),
+				engines:       MakeRuleEngine(30),
 				neighbourhood: [3]uint8{1, 1, 1},
-				expected:      rules.RuleEngine{Neighbourhood: [3]uint8{1, 1, 1}, NextStep: 0},
+				expected:      RuleEngine{Neighbourhood: [3]uint8{1, 1, 1}, NextStep: 0},
 				found:         true,
 			},
 			{
-				engines:       rules.MakeRuleEngine(45),
+				engines:       MakeRuleEngine(45),
 				neighbourhood: [3]uint8{0, 1, 0},
-				expected:      rules.RuleEngine{Neighbourhood: [3]uint8{0, 1, 0}, NextStep: 1},
+				expected:      RuleEngine{Neighbourhood: [3]uint8{0, 1, 0}, NextStep: 1},
 				found:         true,
 			},
 			{
-				engines:       rules.MakeRuleEngine(45),
+				engines:       MakeRuleEngine(45),
 				neighbourhood: [3]uint8{2, 1, 0},
-				expected:      rules.RuleEngine{},
+				expected:      RuleEngine{},
 				found:         false,
 			},
 		}

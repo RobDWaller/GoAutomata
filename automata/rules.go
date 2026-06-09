@@ -1,4 +1,4 @@
-package rules
+package automata
 
 type RuleEngine struct {
 	Neighbourhood [3]uint8

@@ -1,7 +1,6 @@
 package automata
 
 import (
-	"go_automata/rules"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -48,7 +47,7 @@ func TestStep(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			result := Step(rules.MakeRuleEngine(tt.rule), tt.row)
+			result := Step(MakeRuleEngine(tt.rule), tt.row)
 			assert.Equal(t, tt.expected, result)
 		})
 	}

@@ -1,8 +1,6 @@
 package automata
 
-import "go_automata/rules"
-
-func Step(engines []rules.RuleEngine, row []uint8) []uint8 {
+func Step(engines []RuleEngine, row []uint8) []uint8 {
 	result := make([]uint8, len(row))
 
 	for i := range row {

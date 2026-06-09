@@ -1,9 +1,7 @@
 package automata
 
-import "go_automata/rules"
-
 func Steps(steps uint, rule uint8, seed []uint8) map[uint][]uint8 {
-	engines := rules.MakeRuleEngine(rule)
+	engines := MakeRuleEngine(rule)
 	result := make(map[uint][]uint8)
 
 	result[0] = seed

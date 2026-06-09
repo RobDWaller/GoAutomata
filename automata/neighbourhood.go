@@ -1,7 +1,5 @@
 package automata
 
-import "go_automata/rules"
-
 func GetNeighbourhood(row []uint8, position uint8) [3]uint8 {
 	n := len(row)
 	i := int(position)
@@ -11,7 +9,7 @@ func GetNeighbourhood(row []uint8, position uint8) [3]uint8 {
 	return [3]uint8{prev, curr, next}
 }
 
-func FindNeighbourhood(engines []rules.RuleEngine, neighbourhood [3]uint8) (rules.RuleEngine, bool) {
+func FindNeighbourhood(engines []RuleEngine, neighbourhood [3]uint8) (RuleEngine, bool) {
 
 	for _, engine := range engines {
 		if engine.Neighbourhood == neighbourhood {
@@ -19,5 +17,5 @@ func FindNeighbourhood(engines []rules.RuleEngine, neighbourhood [3]uint8) (rule
 		}
 	}
 
-	return rules.RuleEngine{}, false
+	return RuleEngine{}, false
 }
