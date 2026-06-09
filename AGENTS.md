@@ -12,11 +12,12 @@
 - Prefer table-driven tests for multi-case logic.
 - Before submitting code commits, run:
   - `go test -v ./...`
-  - `go vet ./...`
 
 ## Linting
-- Run `gofmt ./...` and keep code/lint output clean.
 - Ensure spelling is correct in packages, modules, methods and comments.
+- Before submitting code commits, run:
+  - `golangci-lint run`
+  - `gofmt -l`
 
 ## Development Process
 - Ask the human user at least two relevant questions before you begin planning your changes to gain additional context.
