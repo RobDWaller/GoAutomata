@@ -1,4 +1,4 @@
-module go_automata
+module github.com/go-automata/automata
 
 go 1.24.4
 
