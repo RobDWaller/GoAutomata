@@ -1,4 +1,4 @@
-module github.com/go-automata/automata
+module github.com/robdwaller/go-automata
 
 go 1.24.4
 
